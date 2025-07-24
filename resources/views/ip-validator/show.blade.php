@@ -13,12 +13,7 @@
             <div>
                 <span class="scan-status status-{{ $batch->status }} me-2">{{ ucfirst($batch->status) }}</span>
                 @if($batch->status === 'completed')
-                    <a href="{{ route('pentest.select', $batch->batch_id) }}" class="btn btn-danger me-2">
-                        <i class="fas fa-skull-crossbones me-1"></i>Start Pentest
-                    </a>
-                    <a href="{{ route('pentest.sessions', $batch->batch_id) }}" class="btn btn-warning me-2">
-                        <i class="fas fa-history me-1"></i>Pentest History
-                    </a>
+                    
                     <a href="{{ route('scan.report', $batch->batch_id) }}" class="btn btn-info me-2">
                         <i class="fas fa-chart-bar me-1"></i>View Report
                     </a>
