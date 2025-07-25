@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>@yield('title', 'IP Validator') - {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', 'Kings Recon') - {{ config('app.name', 'Laravel') }}</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <i class="fas fa-network-wired me-2"></i>
-                IP Validator
+                Kings Recon
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -98,7 +98,7 @@
 
     <footer class="bg-dark text-light text-center py-3 mt-5">
         <div class="container">
-            <p class="mb-0">&copy; {{ date('Y') }} IP Validator. Built with Laravel & Bootstrap.</p>
+            <p class="mb-0">&copy; {{ date('Y') }} Kings Recon.</p>
         </div>
     </footer>
 

@@ -1,4 +1,4 @@
-# Laravel IP Validator & Port Scanner
+# Kings_Recon
 
 
 This Laravel application allows you to upload files (TXT, CSV, Excel) containing IP addresses, validates them, checks their online status, and performs basic port scanning. Results are displayed in a dashboard with real-time progress and reporting.
@@ -80,7 +80,7 @@ These features are planned for future releases. The current focus is on reliable
 1. **Clone the repository:**
 ```bash
 git clone <repository-url>
-cd public_ip_validator
+cd Kings_Recon
 ```
 
 2. **Install dependencies:**
