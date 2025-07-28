@@ -31,7 +31,7 @@ class IpScanService
         162 => 'SNMP Trap',
         445 => 'SMB',
         8080 => 'HTTP Proxy',
-        8443 => 'HTTPS Admin',
+        // 8443 => 'HTTPS Admin',
         1723 => 'PPTP VPN',
         5060 => 'SIP',
         5901 => 'VNC Alt',
@@ -59,7 +59,7 @@ class IpScanService
         6379 => 'Redis - Default configuration is insecure. Unauthenticated access allows attackers to write to disk, escalate privileges, or pivot in the network.',
         27017 => 'MongoDB - Exposed database. No default authentication; attackers can read, modify, or delete data, and ransom database contents.',
         8080 => 'HTTP Proxy - Often used for admin panels, should be restricted. Attackers can access internal admin interfaces, proxy traffic, or exploit web vulnerabilities.',
-        8443 => 'HTTPS Admin - Admin interfaces exposed. Attackers target weak authentication, outdated software, and misconfigurations for privilege escalation.',
+        // 8443 => 'HTTPS Admin - Admin interfaces exposed. Attackers target weak authentication, outdated software, and misconfigurations for privilege escalation.',
         1723 => 'PPTP VPN - Weak encryption, deprecated. Susceptible to interception and brute force attacks due to obsolete cryptography.',
         5060 => 'SIP - VoIP service, often targeted. Attackers can eavesdrop, hijack calls, or launch denial-of-service attacks on VoIP infrastructure.',
         5901 => 'VNC Alt - Alternate VNC port, often unencrypted. Same risks as 5900, with attackers scanning alternate ports for remote access.',
@@ -195,7 +195,7 @@ class IpScanService
             6379,  // Redis
             27017, // MongoDB
             8080,  // HTTP Proxy/Admin
-            8443,  // HTTPS Admin
+            // 8443,  // HTTPS Admin
             8000,  // Web Admin/Dev
             8888,  // Web Admin/Dev
             10000, // Webmin
@@ -263,7 +263,7 @@ class IpScanService
             162 => 'Secure SNMP Trap with strong community strings, use SNMPv3, restrict access',
             445 => 'Apply latest SMB patches, disable SMBv1, restrict file sharing',
             8080 => 'Restrict HTTP proxy/admin access, require authentication, patch software',
-            8443 => 'Restrict HTTPS admin interfaces, use strong authentication, patch software',
+            // 8443 => 'Restrict HTTPS admin interfaces, use strong authentication, patch software',
             1723 => 'Disable PPTP VPN, use modern VPN protocols (OpenVPN, WireGuard)',
             5060 => 'Restrict SIP access, use strong authentication, patch VoIP software',
             5901 => 'Restrict alternate VNC ports, use encryption, patch software',
