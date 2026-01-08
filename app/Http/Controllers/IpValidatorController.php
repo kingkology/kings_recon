@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\IpImport;
 use App\Jobs\ProcessIpScan;
+use App\Jobs\ProcessIpScanBatch;
 use App\Models\IpScan;
 use App\Models\UploadBatch;
 use App\Services\IpScanService;
@@ -110,11 +111,8 @@ class IpValidatorController extends Controller
 
     private function dispatchScanJobs(string $batchId): void
     {
-        $ipScans = IpScan::where('batch_id', $batchId)->where('status', 'pending')->get();
-        
-        foreach ($ipScans as $ipScan) {
-            ProcessIpScan::dispatch($ipScan);
-        }
+        // Dispatch a single batch job that will process multiple IPs
+        ProcessIpScanBatch::dispatch($batchId);
     }
 
     public function show(string $batchId): View

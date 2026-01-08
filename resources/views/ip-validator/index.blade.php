@@ -86,7 +86,6 @@
     <div class="d-flex justify-content-center">
         {{ $batches->links() }}
     </div>
-    
 @else
     <div class="text-center py-5">
         <div class="display-1 text-muted mb-3">

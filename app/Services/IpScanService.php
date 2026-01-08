@@ -31,7 +31,7 @@ class IpScanService
         162 => 'SNMP Trap',
         445 => 'SMB',
         8080 => 'HTTP Proxy',
-        // 8443 => 'HTTPS Admin',
+        8443 => 'HTTPS Admin',
         1723 => 'PPTP VPN',
         5060 => 'SIP',
         5901 => 'VNC Alt',
