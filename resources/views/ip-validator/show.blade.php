@@ -190,25 +190,34 @@
 </div>
 
 @if($ipScans->hasPages())
+    <!-- <div class="d-flex justify-content-center mt-4">
+        {{ $ipScans->links() }}
+    </div> -->
 
     <div class="mt-3">
-                <nav>
-                    <ul class="pagination">
-                        <li class="page-item {{ $ipScans->onFirstPage() ? 'disabled' : '' }}">
-                            <a class="page-link" href="{{ $ipScans->previousPageUrl() }}">Previous</a>
-                        </li>
-                        @for ($i = 1; $i <= $ipScans->lastPage(); $i++)
-                            <li class="page-item {{ $i == $ipScans->currentPage() ? 'active' : '' }}">
-                                <a class="page-link" href="{{ $ipScans->url($i) }}">{{ $i }}</a>
-                            </li>
-                        @endfor
-                        <li class="page-item {{ $ipScans->hasMorePages() ? '' : 'disabled' }}">
-                            <a class="page-link" href="{{ $ipScans->nextPageUrl() }}">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-          
+        <nav>
+            <ul class="pagination">
+                <li class="page-item {{$ipScans->onFirstPage() ? 'disabled' : ''}}">
+                <a class="page-link" href="{{$ipScans->previousPageUrl()}}">
+                    Previous
+                </a>
+                </li>
+            @for ($i = 1; $i <= $ipScans->lastPage(); $i++)
+                <li class="page-item {{$i == $ipScans->currentPage() ? 'active' : ''}}">
+                    <a class="page-link" href="{{$ipScans->url($i)}}">
+                        {{$i}}
+                    </a>
+                </li>
+            @endfor
+            <li class="page-item {{$ipScans->hasMorePages() ? 'active' : ''}}">
+                <a class="page-link" href="{{$ipScans->nextPageUrl()}}">
+                    Next
+                </a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+
 @endif
 @endsection
 
