@@ -39,7 +39,7 @@
     <div class="col-md-3">
         <div class="card text-center">
             <div class="card-body">
-                <div class="h2 text-info mb-0">{{ $batch->scanned_ips }}</div>
+                <div class="h2 text-info mb-0" data-stat="scanned">{{ $batch->scanned_ips }}</div>
                 <small class="text-muted">Scanned</small>
             </div>
         </div>
@@ -47,7 +47,7 @@
     <div class="col-md-3">
         <div class="card text-center">
             <div class="card-body">
-                <div class="h2 text-success mb-0">{{ $batch->online_ips }}</div>
+                <div class="h2 text-success mb-0" data-stat="online">{{ $batch->online_ips }}</div>
                 <small class="text-muted">Online</small>
             </div>
         </div>
@@ -55,7 +55,7 @@
     <div class="col-md-3">
         <div class="card text-center">
             <div class="card-body">
-                <div class="h2 text-danger mb-0">{{ $batch->vulnerable_ips }}</div>
+                <div class="h2 text-danger mb-0" data-stat="vulnerable">{{ $batch->vulnerable_ips }}</div>
                 <small class="text-muted">Vulnerable</small>
             </div>
         </div>
@@ -229,28 +229,35 @@ $(document).ready(function() {
         const updateProgress = () => {
             $.get(`/scan/{{ $batch->batch_id }}/status`)
                 .done(function(data) {
+                    // Update progress bar
                     $('#scan-progress').css('width', data.progress + '%').text(data.progress + '%');
+                    
+                    // Update statistics cards using data attributes
+                    $('[data-stat="scanned"]').text(data.scanned_ips);
+                    $('[data-stat="online"]').text(data.online_ips);
+                    $('[data-stat="vulnerable"]').text(data.vulnerable_ips);
+                    
                     if (data.status === 'failed') {
                         // Show error message and stop spinner
                         $('.progress-bar').removeClass('progress-bar-animated');
                         $('.progress').after('<div class="alert alert-danger mt-3">Scan failed. Please check logs or try again.</div>');
                         return;
                     }
-                    if (data.status === 'completed') {
+                    if (data.status === 'completed' || data.status === 'completed_with_errors') {
                         setTimeout(() => {
                             location.reload();
                         }, 2000);
                     } else {
                         setTimeout(() => {
-                            location.reload();
-                        }, 10000);
+                            updateProgress();
+                        }, 5000);
                     }
                 })
                 .fail(function() {
                     setTimeout(updateProgress, 10000);
                 });
         };
-        setTimeout(updateProgress, 20000);
+        setTimeout(updateProgress, 3000);
     @endif
     
     // Filter functionality
